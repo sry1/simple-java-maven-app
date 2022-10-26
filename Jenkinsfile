@@ -4,14 +4,12 @@ pipeline {
     stage('Build') {
       steps {
         echo 'Building'
-        sh 'jenkins/build.sh'
       }
     }
 
     stage('Test') {
       steps {
         echo 'Testing'
-        sh 'jenkins/test-all.sh'
         junit 'target/**/*.xml'
       }
     }
@@ -19,7 +17,6 @@ pipeline {
     stage('Deploy') {
       steps {
         echo 'Deploying'
-        sh 'jenkins/deploy.sh'
       }
     }
 
